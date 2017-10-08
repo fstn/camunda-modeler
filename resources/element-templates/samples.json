@@ -1,395 +1,346 @@
 [
   {
-    "name": "Mail Task",
-    "id": "com.camunda.example.MailTask",
-    "appliesTo": [
-      "bpmn:ServiceTask"
-    ],
-    "properties": [
-      {
-        "label": "Implementation Type",
-        "type": "String",
-        "value": "com.mycompany.MailTaskImpl",
-        "editable": false,
-        "binding": {
-          "type": "property",
-          "name": "camunda:class"
-        }
-      },
-      {
-        "label": "Sender",
-        "type": "String",
-        "binding": {
-          "type": "camunda:inputParameter",
-          "name": "sender"
-        },
-        "constraints": {
-          "notEmpty": true
-        }
-      },
-      {
-        "label": "Receivers",
-        "type": "String",
-        "binding": {
-          "type": "camunda:inputParameter",
-          "name": "receivers"
-        },
-        "constraints": {
-          "notEmpty": true
-        }
-      },
-      {
-        "label": "Template",
-        "description": "By the way, you can use freemarker templates ${...} here",
-        "value": "Hello ${firstName}!",
-        "type": "Text",
-        "binding": {
-          "type": "camunda:inputParameter",
-          "name": "messageBody",
-          "scriptFormat": "freemarker"
-        },
-        "constraints": {
-          "notEmpty": true
-        }
-      },
-      {
-        "label": "Result Status",
-        "description": "The process variable to which to assign the send result to",
-        "type": "String",
-        "value": "mailSendResult",
-        "binding": {
-          "type": "camunda:outputParameter",
-          "source": "${ resultStatus }"
-        }
-      },
-      {
-        "label": "Send Async?",
-        "type": "Boolean",
-        "value": true,
-        "binding": {
-          "type": "property",
-          "name": "camunda:asyncBefore"
-        }
-      }
-    ]
-  },
-  {
-    "name": "AsyncAwesomeTask",
-    "id": "com.camunda.example.AwesomeTask",
+    "name": "Text",
+    "id": "text",
     "appliesTo": [
       "bpmn:Task"
     ],
     "properties": [
       {
-        "label": "Are you awesome?",
-        "type": "Boolean",
-        "value": true,
+        "label": "Loop",
+        "type": "Dropdown",
+        "value": "no-loop",
+        "choices": [
+          {"name": "Loop if user types", "value": "loop-if-typing"},
+          {"name": "No loop", "value": "no-loop"}
+        ],
+        "editable": true,
+        "binding": {"type": "camunda:property","name": "kpiunit"}
+      },
+      {
+        "label": "Response text",
+        "description": "",
+        "value": "",
+        "type": "Text",
         "binding": {
-          "type": "property",
-          "name": "camunda:asyncBefore"
+          "type": "camunda:inputParameter",
+          "name": "response_text0",
+          "scriptFormat": "intent"
+        },
+        "constraints": {
+          "notEmpty": true
+        }
+      },
+      {
+        "label": "Response text",
+        "description": "",
+        "value": "",
+        "type": "Text",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "response_text1",
+          "scriptFormat": "intent"
+        },
+        "constraints": {
+          "notEmpty": false
+        }
+      },
+      {
+        "label": "Response text",
+        "description": "",
+        "value": "",
+        "type": "Text",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "response_text2",
+          "scriptFormat": "intent"
+        },
+        "constraints": {
+          "notEmpty": false
+        }
+      },
+      {
+        "label": "Response text",
+        "description": "",
+        "value": "",
+        "type": "Text",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "response_text3",
+          "scriptFormat": "intent"
+        },
+        "constraints": {
+          "notEmpty": false
+        }
+      },
+      {
+        "label": "Response text",
+        "description": "",
+        "value": "",
+        "type": "Text",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "response_text4",
+          "scriptFormat": "intent"
+        },
+        "constraints": {
+          "notEmpty": false
+        }
+      },
+      {
+        "label": "Response text",
+        "description": "",
+        "value": "",
+        "type": "Text",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "response_text5",
+          "scriptFormat": "intent"
+        },
+        "constraints": {
+          "notEmpty": false
+        }
+      },
+      {
+        "label": "Response text",
+        "description": "",
+        "value": "",
+        "type": "Text",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "response_text6",
+          "scriptFormat": "intent"
+        },
+        "constraints": {
+          "notEmpty": false
+        }
+      },
+      {
+        "label": "Response text",
+        "description": "",
+        "value": "",
+        "type": "Text",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "response_text7",
+          "scriptFormat": "intent"
+        },
+        "constraints": {
+          "notEmpty": false
         }
       }
-    ],
-    "entriesVisible": {
-      "_all": true,
-      "asyncBefore": false
-    }
+    ]
   },
   {
-    "name": "Custom ServiceTask",
-    "id": "com.camunda.example.CustomServiceTask",
+    "name": "Media",
+    "id": "media",
     "appliesTo": [
-      "bpmn:ServiceTask"
+      "bpmn:Task"
     ],
     "properties": [
       {
-        "label": "Delegate to Call",
-        "type": "String",
-        "editable": false,
-        "value": "com.camunda.example.FooDelegate",
+        "label": "Response type",
+        "description": "",
+        "value": "media",
+        "type": "Hidden",
         "binding": {
-          "type": "property",
-          "name": "camunda:delegateExpression"
+          "type": "camunda:inputParameter",
+          "name": "response_type",
+          "scriptFormat": "intent"
+        },
+        "constraints": {
+          "notEmpty": true
+        }
+      },
+      {
+        "label": "Response image",
+        "description": "",
+        "value": "",
+        "type": "Text",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "response_image0",
+          "scriptFormat": "intent"
+        },
+        "constraints": {
+          "notEmpty": true
+        }
+      },
+      {
+        "label": "Response text",
+        "description": "",
+        "value": "",
+        "type": "Text",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "response_text0",
+          "scriptFormat": "intent"
+        },
+        "constraints": {
+          "notEmpty": true
+        }
+      },
+      {
+        "label": "Response text",
+        "description": "",
+        "value": "",
+        "type": "Text",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "response_text1",
+          "scriptFormat": "intent"
+        },
+        "constraints": {
+          "notEmpty": false
+        }
+      },
+      {
+        "label": "Response text",
+        "description": "",
+        "value": "",
+        "type": "Text",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "response_text2",
+          "scriptFormat": "intent"
+        },
+        "constraints": {
+          "notEmpty": false
+        }
+      },
+      {
+        "label": "Response text",
+        "description": "",
+        "value": "",
+        "type": "Text",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "response_text3",
+          "scriptFormat": "intent"
+        },
+        "constraints": {
+          "notEmpty": false
+        }
+      },
+      {
+        "label": "Response text",
+        "description": "",
+        "value": "",
+        "type": "Text",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "response_text4",
+          "scriptFormat": "intent"
+        },
+        "constraints": {
+          "notEmpty": false
+        }
+      },
+      {
+        "label": "Response text",
+        "description": "",
+        "value": "",
+        "type": "Text",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "response_text5",
+          "scriptFormat": "intent"
+        },
+        "constraints": {
+          "notEmpty": false
+        }
+      },
+      {
+        "label": "Response text",
+        "description": "",
+        "value": "",
+        "type": "Text",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "response_text6",
+          "scriptFormat": "intent"
+        },
+        "constraints": {
+          "notEmpty": false
+        }
+      },
+      {
+        "label": "Response text",
+        "description": "",
+        "value": "",
+        "type": "Text",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "response_text7",
+          "scriptFormat": "intent"
+        },
+        "constraints": {
+          "notEmpty": false
         }
       }
-    ],
-    "entriesVisible": {
-      "_all": true,
-      "delegate": false,
-      "implementation": false
-    }
+    ]
   },
   {
-    "name": "VIP-Order Path",
-    "id": "e.com.merce.FastPath",
+    "name": "Button configuration",
+    "id": "btn_configuration",
     "appliesTo": [
       "bpmn:SequenceFlow"
     ],
     "properties": [
       {
-        "label": "VIP-Ordering",
-        "type": "String",
-        "editable": false,
-        "value": "${ customer.vip }",
-        "binding": {
-          "type": "property",
-          "name": "conditionExpression"
-        }
-      },
-      {
-        "label": "Label",
-        "type": "Text",
-        "value": "YEY YEA!",
-        "binding": {
-          "type": "property",
-          "name": "name"
-        }
-      }
-    ]
-  },
-  {
-    "name": "WS Caller Task",
-    "id": "com.camunda.example.WsCaller",
-    "appliesTo": [
-      "bpmn:ServiceTask"
-    ],
-    "properties": [
-      {
-        "label": "Web Service URL",
-        "description": "Specify the url of the web service to talk to.",
-        "type": "String",
-        "binding": {
-          "type": "camunda:property",
-          "name": "webServiceUrl"
-        },
-        "constraints": {
-          "notEmpty": true,
-          "pattern": {
-            "value": "^https://.*",
-            "message": "Must be https URL."
-          }
-        }
-      },
-      {
-        "type": "Hidden",
-        "value": "com.camunda.example.WsCaller",
-        "binding": {
-          "type": "property",
-          "name": "camunda:class"
-        }
-      }
-    ]
-  },
-  {
-    "name": "Check Invoice Task",
-    "id": "com.camunda.example.CheckInvoiceTask",
-    "appliesTo": [
-      "bpmn:UserTask"
-    ],
-    "properties": [
-      {
-        "label": "Candidate Users",
-        "description": "Users able to carry out this task",
-        "type": "String",
-        "value": "Walt, Jeff, Lisa",
-        "binding": {
-          "type": "property",
-          "name": "camunda:candidateUsers"
-        },
-        "constraints": {
-          "notEmpty": true,
-          "pattern": {
-            "value": "\\s*(\\w+,\\s?)*\\w+\\s*",
-            "message": "Use comma separated list of user names"
-          }
-        }
-      },
-      {
-        "label": "Candidate Groups",
-        "description": "Groups able to carry out this task",
-        "type": "String",
-        "value": "Backoffice",
-        "binding": {
-          "type": "property",
-          "name": "camunda:candidateGroups"
-        },
-        "constraints": {
-          "notEmpty": true,
-          "pattern": {
-            "value": "\\s*(\\w+,\\s?)*\\w+\\s*",
-            "message": "Use comma separated list of group names"
-          }
-        }
-      },
-      {
-        "label": "Task Priority",
+        "label": "Button type",
         "type": "Dropdown",
-        "value": "50",
+        "value": "quickReply",
         "choices": [
-          { "name": "low", "value": "20" },
-          { "name": "medium", "value": "50" },
-          { "name": "height", "value": "100" }
+          {
+            "name": "Button",
+            "value": "buttons"
+          },
+          {
+            "name": "Quick replies",
+            "value": "quickReplies"
+          }
         ],
         "binding": {
-          "type": "property",
-          "name": "camunda:priority"
-        }
-      }
-    ],
-    "entriesVisible": {
-      "_all": true,
-      "candidateUsers": false,
-      "candidateGroups": false
-    }
-  },
-  {
-    "name": "Caller",
-    "id": "com.camunda.example.Caller",
-    "appliesTo": [
-      "bpmn:CallActivity"
-    ],
-    "properties": [
-      {
-        "label": "Called Process",
-        "type": "String",
-        "editable": false,
-        "value": "calledProcess",
-        "binding": {
-          "type": "property",
-          "name": "calledElement"
+          "type": "camunda:inputParameter",
+          "name": "btnType"
         }
       },
       {
-        "label": "Input source variable",
-        "type": "String",
-        "value": "var_local",
+        "label": "Button label",
+        "description": "Button label",
+        "value": "",
+        "type": "Text",
         "binding": {
-          "type": "camunda:in",
-          "target": "var_called_source"
+          "type": "camunda:inputParameter",
+          "name": "btn_label0"
         },
         "constraints": {
           "notEmpty": true
         }
       },
       {
-        "label": "Output target (source variable)",
-        "type": "String",
-        "value": "var_called",
+        "label": "Button label",
+        "description": "Button label",
+        "value": "",
+        "type": "Text",
         "binding": {
-          "type": "camunda:out",
-          "source": "var_local_source"
+          "type": "camunda:inputParameter",
+          "name": "btn_label1"
         },
         "constraints": {
-          "notEmpty": true
-        }
-      },
-      {
-        "label": "Input sourceExpression",
-        "type": "String",
-        "value": "${expr_local}",
-        "binding": {
-          "type": "camunda:in",
-          "target": "var_called_expr",
-          "expression": true
-        },
-        "constraints": {
-          "notEmpty": true
-        }
-      },
-      {
-        "label": "Output target (sourceExpression)",
-        "type": "String",
-        "value": "var_local_expr",
-        "binding": {
-          "type": "camunda:out",
-          "sourceExpression": "${expr_called}"
-        },
-        "constraints": {
-          "notEmpty": true
-        }
-      },
-      {
-        "label": "Input all",
-        "type": "Hidden",
-        "binding": {
-          "type": "camunda:in",
-          "variables": "all"
-        }
-      },
-      {
-        "label": "Output all",
-        "type": "Hidden",
-        "binding": {
-          "type": "camunda:out",
-          "variables": "all"
-        }
-      },
-      {
-        "label": "Input all local",
-        "type": "Hidden",
-        "binding": {
-          "type": "camunda:in",
-          "variables": "local"
-        }
-      },
-      {
-        "label": "Output all local",
-        "type": "Hidden",
-        "binding": {
-          "type": "camunda:out",
-          "variables": "local"
-        }
-      },
-      {
-        "label": "Input business key",
-        "description": "Provide the expression retrieving the business key.",
-        "type": "String",
-        "value": "${execution.processBusinessKey}",
-        "binding": {
-          "type": "camunda:in:businessKey"
+          "notEmpty": false
         }
       }
     ]
   },
   {
-    "name": "Execution Listener",
-    "id": "com.camunda.example.ExecutionListener",
+    "name": "Pilot configuration",
+    "id": "pilot_configuration",
     "appliesTo": [
-      "bpmn:Activity",
-      "bpmn:Event",
-      "bpmn:Gateway"
+      "bpmn:SequenceFlow"
     ],
     "properties": [
-      {
-        "value": "println execution.eventName",
-        "type": "Hidden",
-        "binding": {
-          "type": "camunda:executionListener",
-          "event": "start",
-          "scriptFormat": "groovy"
-        }
-      },
-      {
-        "value": "println end",
-        "type": "Hidden",
-        "binding": {
-          "type": "camunda:executionListener",
-          "event": "end",
-          "scriptFormat": "groovy"
-        }
-      }
-    ],
-    "entriesVisible": {
-      "_all": true,
-      "executionListeners": false,
-      "listener-event-type": false,
-      "listener-type": false,
-      "listener-value": false,
-      "listener-script-value": false,
-      "listener-fields": false,
-      "listener-field-name": false,
-      "listener-field-type": false,
-      "listener-field-value": false
-    }
+    ]
   }
 ]
